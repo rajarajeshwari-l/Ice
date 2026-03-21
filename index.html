@@ -504,39 +504,41 @@ footer p { color: rgba(255,255,255,0.42); font-size: 0.8rem; margin-top: 16px; }
 <div class="toast" id="toast"></div>
 
 <script>
-var ITEMS = [
-  { id:1, name:"Strawberry Bliss",       emoji:"🍓", desc:"Fresh strawberry with a hint of vanilla cream",           price:99,  cat:"classic", tags:["Fan Fav","Fruity"],     badge:"Bestseller", bg:"linear-gradient(135deg,#FFE4E8,#FFD6DD)" },
-  { id:2, name:"Triple Choco Avalanche", emoji:"🍫", desc:"Dark, milk & white chocolate swirled to perfection",      price:149, cat:"premium", tags:["Indulgent","Rich"],     badge:"Popular",    bg:"linear-gradient(135deg,#F5E6D3,#EDD5BB)" },
-  { id:3, name:"Mango Tango Sorbet",     emoji:"🥭", desc:"100% real mango — tangy, tropical and refreshing",        price:89,  cat:"sorbet",  tags:["Vegan","Fruity"],      badge:null,         bg:"linear-gradient(135deg,#FFF3CD,#FFE08A)" },
-  { id:4, name:"Mint Chip Dream",        emoji:"🌿", desc:"Cool peppermint with dark chocolate chip clusters",        price:99,  cat:"classic", tags:["Refreshing","Classic"],badge:null,         bg:"linear-gradient(135deg,#D4F4E2,#B8EFD1)" },
-  { id:5, name:"Berry Cloud Sundae",     emoji:"🫐", desc:"Blueberry & raspberry swirl topped with whipped cream",    price:179, cat:"sundae",  tags:["Sundae","Fruity"],    badge:"New",        bg:"linear-gradient(135deg,#EDE9FE,#DDD6FE)" },
-  { id:6, name:"Caramel Sea Salt",       emoji:"🍮", desc:"Buttery caramel with a luxurious sea salt finish",         price:129, cat:"premium", tags:["Premium","Indulgent"],badge:null,         bg:"linear-gradient(135deg,#FEF3C7,#FDE68A)" },
-  { id:7, name:"Lemon Zest Sorbet",      emoji:"🍋", desc:"Bright, zingy lemon sorbet — sunshine in a cup",           price:79,  cat:"sorbet",  tags:["Vegan","Tangy"],      badge:null,         bg:"linear-gradient(135deg,#FEFCE8,#FEF08A)" },
-  { id:8, name:"Cookies & Dream",        emoji:"🍪", desc:"Vanilla ice cream loaded with buttery cookie crumbles",    price:119, cat:"classic", tags:["Classic","Kids Fav"], badge:"Loved",      bg:"linear-gradient(135deg,#F5F5F5,#E8E8E8)" },
-  { id:9, name:"Tropical Sunset Sundae", emoji:"🌅", desc:"Mango, passion fruit & coconut with toasted flakes",       price:199, cat:"sundae",  tags:["Sundae","Exotic"],    badge:"Chef Pick",  bg:"linear-gradient(135deg,#FFE4B5,#FFCCAA)" },
-];
-  // ── RENDER GRID ───────────────────────────────────────
+let cart = {};
+let currentFilter = 'all';
+
 function renderGrid() {
-  const filtered = currentFilter === 'all' ? ITEMS : ITEMS.filter(i => i.cat === currentFilter);
-  document.getElementById('itemGrid').innerHTML = filtered.map(item => {
+  const filtered = currentFilter === 'all'
+    ? ITEMS
+    : ITEMS.filter(i => i.cat === currentFilter);
+
+  document.getElementById('grid').innerHTML = filtered.map(item => {
     const qty = cart[item.id] || 0;
+
     return `
     <div class="card">
       <div class="card-img" style="background:${item.bg}">
-        <span style="filter:drop-shadow(0 6px 12px rgba(0,0,0,0.15))">${item.emoji}</span>
-        ${item.badge ? `<span class="card-bdg">${item.badge}</span>` : ''}
+        <span>${item.emoji}</span>
+        ${item.badge ? `<span class="bdg">${item.badge}</span>` : ''}
       </div>
+
       <div class="card-body">
-        <div class="card-name">${item.name}</div><div class="card-desc">${item.desc}</div>
-        <div class="card-tags">${item.tags.map(t=>`<span class="ctag">${t}</span>`).join('')}</div>
-        <div class="card-foot">
-          <div class="price">₹${item.price} <small>/scoop</small></div>
+        <div class="cname">${item.name}</div>
+        <div class="cdesc">${item.desc}</div>
+
+        <div class="ctags">
+          ${item.tags.map(t=>`<span class="ctag">${t}</span>`).join('')}
+        </div>
+
+        <div class="cfoot">
+          <div class="price">₹${item.price}</div>
+
           ${qty === 0
             ? `<button class="add-btn" onclick="addItem(${item.id})">+</button>`
             : `<div class="qty-box">
-                 <button class="q-btn" onclick="removeItem(${item.id})">−</button>
-                 <span class="q-num">${qty}</span>
-                 <button class="q-btn" onclick="addItem(${item.id})">+</button>
+                 <button class="qbtn" onclick="removeItem(${item.id})">−</button>
+                 <span class="qnum">${qty}</span>
+                 <button class="qbtn" onclick="addItem(${item.id})">+</button>
                </div>`
           }
         </div>
@@ -544,16 +546,14 @@ function renderGrid() {
     </div>`;
   }).join('');
 }
- 
-// ── CART ACTIONS ──────────────────────────────────────
+
 function addItem(id) {
   cart[id] = (cart[id] || 0) + 1;
   renderGrid();
   updateCartCount();
-  const item = ITEMS.find(i => i.id === id);
-  showToast(`${item.emoji} ${item.name} added!`);
+  showToast("Added to cart 🍦");
 }
- 
+
 function removeItem(id) {
   if (!cart[id]) return;
   cart[id]--;
@@ -562,89 +562,82 @@ function removeItem(id) {
   updateCartCount();
   renderCartDrawer();
 }
- 
+
 function updateCartCount() {
-  const total = Object.values(cart).reduce((a,b) => a+b, 0);
+  const total = Object.values(cart).reduce((a,b)=>a+b,0);
   document.getElementById('cartCount').textContent = total;
 }
-  // ── CART DRAWER ───────────────────────────────────────
+
 function renderCartDrawer() {
-  const body = document.getElementById('drawerBody');
-  const foot = document.getElementById('drawerFoot');
+  const body = document.getElementById('dbody');
+  const foot = document.getElementById('dfoot');
   const ids = Object.keys(cart).map(Number);
- 
-  if (ids.length === 0) {
-    body.innerHTML = `<div class="empty-box"><span>🍦</span><p>Your cart is empty.<br>Add some scoops!</p></div>`;
-    foot.style.display = 'none';
+
+  if (!ids.length) {
+    body.innerHTML = "Your cart is empty 🍦";
+    foot.style.display = "none";
     return;
-  }let total = 0;
-  body.innerHTML = ids.map(id => {
-    const item = ITEMS.find(i => i.id === id);
+  }
+
+  let total = 0;
+
+  body.innerHTML = ids.map(id=>{
+    const item = ITEMS.find(i=>i.id===id);
     const qty = cart[id];
     const sub = item.price * qty;
     total += sub;
+
     return `
     <div class="ci">
-      <span class="ci-emoji">${item.emoji}</span>
-      <div class="ci-info">
-        <div class="ci-name">${item.name}</div>
-        <div class="ci-price">₹${sub} (${qty} × ₹${item.price})</div>
-      </div>
-      <div class="ci-qty">
-        <button class="cq" onclick="removeItem(${id})">−</button>
-        <span style="font-weight:800;min-width:18px;text-align:center">${qty}</span>
-        <button class="cq" onclick="addItem(${id})">+</button>
+      <span class="ciemoji">${item.emoji}</span>
+      <div class="ciinfo">
+        <div>${item.name}</div>
+        <div>₹${sub}</div>
       </div>
     </div>`;
-  }).join('');document.getElementById('totalAmt').textContent = `₹${total}`;
-  document.getElementById('delNote').textContent = total >= 500 ? '🎉 Free delivery unlocked!' : `Add ₹${500 - total} more for free delivery 🚚`;
-  foot.style.display = 'block';
+  }).join('');
+
+  document.getElementById('tamt').textContent = "₹" + total;
+  document.getElementById('dnote').textContent =
+    total >= 500 ? "🎉 Free Delivery" : "Add more for free delivery";
+
+  foot.style.display = "block";
 }
- 
-function openCart() {
+
+function openCart(){
   renderCartDrawer();
   document.getElementById('overlay').classList.add('on');
   document.getElementById('drawer').classList.add('on');
 }
- 
-function closeCart() {
+
+function closeCart(){
   document.getElementById('overlay').classList.remove('on');
   document.getElementById('drawer').classList.remove('on');
 }
-  // ── PLACE ORDER ───────────────────────────────────────
-function placeOrder() {
+
+function placeOrder(){
   closeCart();
-  // Generate order ID
-  const oid = 'RAJI' + Date.now().toString().slice(-6);
-  document.getElementById('orderIdBox').textContent = `Order ID: #${oid}`;
-  document.getElementById('successScreen').classList.add('on');
-  // Clear cart
-  cart = {};
-  updateCartCount();
-  renderGrid();
+  document.getElementById('success').classList.add('on');
 }
- 
-function continueShopping() {
-  document.getElementById('successScreen').classList.remove('on');
-}// ── FILTER ────────────────────────────────────────────
-function filterItems(el, cat) {
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+
+function goBack(){
+  document.getElementById('success').classList.remove('on');
+}
+
+function filter(el, cat){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   el.classList.add('active');
   currentFilter = cat;
   renderGrid();
 }
- 
-// ── TOAST ─────────────────────────────────────────────
-let toastTimer;
-function showToast(msg) {
+
+function showToast(msg){
   const t = document.getElementById('toast');
-  t.textContent = '🎉 ' + msg;
+  t.textContent = msg;
   t.classList.add('on');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove('on'), 2400);
+  setTimeout(()=>t.classList.remove('on'),2000);
 }
- 
-// ── INIT ──────────────────────────────────────────────
+
 renderGrid();
 </script>
 </body>
