@@ -365,6 +365,16 @@ footer {
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 footer p { color: rgba(255,255,255,0.42); font-size: 0.8rem; margin-top: 16px; }
+.social-links { display: flex; justify-content: center; gap: 16px; margin: 20px 0 10px; }
+.social-btn {
+  display: flex; align-items: center; gap: 8px;
+  padding: 11px 24px; border-radius: 50px;
+  font-size: 0.9rem; font-weight: 700; text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.wa-btn { background: #25D366; color: #fff; box-shadow: 0 4px 14px rgba(37,211,102,0.35); }
+.ig-btn { background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color: #fff; box-shadow: 0 4px 14px rgba(220,39,67,0.35); }
+.social-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(0,0,0,0.25); }
 
 @media(max-width:580px){ .steps{ gap: 0; } .sline{ width: 20px; } .step-ico{ width:44px;height:44px;font-size:1.2rem; } }
 </style>
@@ -433,17 +443,17 @@ footer p { color: rgba(255,255,255,0.42); font-size: 0.8rem; margin-top: 16px; }
     <div class="rcard">
       <div class="stars">★★★★★</div>
       <p>"Mango Tango Sorbet is absolutely divine! Fresh, bright and so refreshing. I order every week from Raji!"</p>
-      <div class="rby"><div class="rav" style="background:#FFECD2">🙋‍♀️</div><div><div class="rname">Priya S.</div><div class="rsub">Loyal customer</div></div></div>
+      <div class="rby"><div class="rav" style="background:#FFECD2">🙋‍♀️</div><div><div class="rname">nisha m.</div><div class="rsub">Loyal customer</div></div></div>
     </div>
     <div class="rcard">
       <div class="stars">★★★★★</div>
       <p>"Triple Choco Avalanche is unreal! My kids think I'm the best parent for ordering from Raji Ice Cream!"</p>
-      <div class="rby"><div class="rav" style="background:#D4F4E2">👨‍👧</div><div><div class="rname">Ramesh K.</div><div class="rsub">Dad of 2 sweet tooths</div></div></div>
+      <div class="rby"><div class="rav" style="background:#D4F4E2">👨‍👧</div><div><div class="rname">musmin s.</div><div class="rsub">Dad of 2 sweet tooths</div></div></div>
     </div>
     <div class="rcard">
       <div class="stars">★★★★★</div>
       <p>"Fast delivery, beautiful packaging and flavours that taste like heaven. Best ice cream in town!"</p>
-      <div class="rby"><div class="rav" style="background:#EDE9FE">👩‍🎨</div><div><div class="rname">Deepa L.</div><div class="rsub">Food blogger</div></div></div>
+      <div class="rby"><div class="rav" style="background:#EDE9FE">👩‍🎨</div><div><div class="rname">Roja m.</div><div class="rsub">Food blogger</div></div></div>
     </div>
   </div>
 </div>
@@ -451,7 +461,18 @@ footer p { color: rgba(255,255,255,0.42); font-size: 0.8rem; margin-top: 16px; }
 <!-- FOOTER -->
 <footer>
   <div class="flogo">Raji <span>Ice Cream</span> 💙</div>
-  <p>Made with love 💙🍦 | Free delivery on orders over ₹500 | © 2026 Raji Ice Cream</p>
+  <p>Made with love 💙🍦 | Free delivery on orders over ₹500</p>
+  <div class="social-links">
+    <a class="social-btn wa-btn" href="https://wa.me/916382447723" target="_blank">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+    <a class="social-btn ig-btn" href="https://instagram.com/rajarajeshwari_l" target="_blank">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      Instagram
+    </a>
+  </div>
+  <p>© 2026 Raji Ice Cream — All rights reserved</p>
 </footer>
 
 <!-- CART -->
@@ -504,54 +525,66 @@ footer p { color: rgba(255,255,255,0.42); font-size: 0.8rem; margin-top: 16px; }
 <div class="toast" id="toast"></div>
 
 <script>
-let cart = {};
-let currentFilter = 'all';
+var ITEMS = [
+  { id:1, name:"Strawberry Bliss",       emoji:"🍓", desc:"Fresh strawberry with a hint of vanilla cream",           price:99,  cat:"classic", tags:["Fan Fav","Fruity"],     badge:"Bestseller", bg:"linear-gradient(135deg,#FFE4E8,#FFD6DD)" },
+  { id:2, name:"Triple Choco Avalanche", emoji:"🍫", desc:"Dark, milk & white chocolate swirled to perfection",      price:149, cat:"premium", tags:["Indulgent","Rich"],     badge:"Popular",    bg:"linear-gradient(135deg,#F5E6D3,#EDD5BB)" },
+  { id:3, name:"Mango Tango Sorbet",     emoji:"🥭", desc:"100% real mango — tangy, tropical and refreshing",        price:89,  cat:"sorbet",  tags:["Vegan","Fruity"],      badge:null,         bg:"linear-gradient(135deg,#FFF3CD,#FFE08A)" },
+  { id:4, name:"Mint Chip Dream",        emoji:"🌿", desc:"Cool peppermint with dark chocolate chip clusters",       price:99,  cat:"classic", tags:["Refreshing","Classic"], badge:null,         bg:"linear-gradient(135deg,#D4F4E2,#B8EFD1)" },
+  { id:5, name:"Berry Cloud Sundae",     emoji:"🫐", desc:"Blueberry & raspberry swirl topped with whipped cream",   price:179, cat:"sundae",  tags:["Sundae","Fruity"],     badge:"New",        bg:"linear-gradient(135deg,#EDE9FE,#DDD6FE)" },
+  { id:6, name:"Caramel Sea Salt",       emoji:"🍮", desc:"Buttery caramel with a luxurious sea salt finish",        price:129, cat:"premium", tags:["Premium","Indulgent"], badge:null,         bg:"linear-gradient(135deg,#FEF3C7,#FDE68A)" },
+  { id:7, name:"Lemon Zest Sorbet",      emoji:"🍋", desc:"Bright, zingy lemon sorbet — sunshine in a cup",          price:79,  cat:"sorbet",  tags:["Vegan","Tangy"],       badge:null,         bg:"linear-gradient(135deg,#FEFCE8,#FEF08A)" },
+  { id:8, name:"Cookies & Dream",        emoji:"🍪", desc:"Vanilla ice cream loaded with buttery cookie crumbles",   price:119, cat:"classic", tags:["Classic","Kids Fav"],  badge:"Loved",      bg:"linear-gradient(135deg,#F5F5F5,#E8E8E8)" },
+  { id:9, name:"Tropical Sunset Sundae", emoji:"🌅", desc:"Mango, passion fruit & coconut with toasted flakes",      price:199, cat:"sundae",  tags:["Sundae","Exotic"],     badge:"Chef Pick",  bg:"linear-gradient(135deg,#FFE4B5,#FFCCAA)" }
+];
+
+var cart = {};
+var curFilter = "all";
+var toastTimer = null;
 
 function renderGrid() {
-  const filtered = currentFilter === 'all'
-    ? ITEMS
-    : ITEMS.filter(i => i.cat === currentFilter);
-
-  document.getElementById('grid').innerHTML = filtered.map(item => {
-    const qty = cart[item.id] || 0;
-
-    return `
-    <div class="card">
-      <div class="card-img" style="background:${item.bg}">
-        <span>${item.emoji}</span>
-        ${item.badge ? `<span class="bdg">${item.badge}</span>` : ''}
-      </div>
-
-      <div class="card-body">
-        <div class="cname">${item.name}</div>
-        <div class="cdesc">${item.desc}</div>
-
-        <div class="ctags">
-          ${item.tags.map(t=>`<span class="ctag">${t}</span>`).join('')}
-        </div>
-
-        <div class="cfoot">
-          <div class="price">₹${item.price}</div>
-
-          ${qty === 0
-            ? `<button class="add-btn" onclick="addItem(${item.id})">+</button>`
-            : `<div class="qty-box">
-                 <button class="qbtn" onclick="removeItem(${item.id})">−</button>
-                 <span class="qnum">${qty}</span>
-                 <button class="qbtn" onclick="addItem(${item.id})">+</button>
-               </div>`
-          }
-        </div>
-      </div>
-    </div>`;
-  }).join('');
+  var list = curFilter === "all" ? ITEMS : ITEMS.filter(function(i){ return i.cat === curFilter; });
+  var html = "";
+  for (var x = 0; x < list.length; x++) {
+    var item = list[x];
+    var qty = cart[item.id] || 0;
+    var qtyHtml = qty === 0
+      ? '<button class="add-btn" onclick="addItem(' + item.id + ')">+</button>'
+      : '<div class="qty-box">'
+          + '<button class="qbtn" onclick="removeItem(' + item.id + ')">&#8722;</button>'
+          + '<span class="qnum">' + qty + '</span>'
+          + '<button class="qbtn" onclick="addItem(' + item.id + ')">+</button>'
+        + '</div>';
+    var badgeHtml = item.badge ? '<span class="bdg">' + item.badge + '</span>' : '';
+    var tagsHtml = "";
+    for (var t = 0; t < item.tags.length; t++) {
+      tagsHtml += '<span class="ctag">' + item.tags[t] + '</span>';
+    }
+    html += '<div class="card">'
+      + '<div class="card-img" style="background:' + item.bg + '">'
+        + '<span style="filter:drop-shadow(0 6px 12px rgba(0,0,0,0.15))">' + item.emoji + '</span>'
+        + badgeHtml
+      + '</div>'
+      + '<div class="card-body">'
+        + '<div class="cname">' + item.name + '</div>'
+        + '<div class="cdesc">' + item.desc + '</div>'
+        + '<div class="ctags">' + tagsHtml + '</div>'
+        + '<div class="cfoot">'
+          + '<div class="price">&#8377;' + item.price + ' <small>/scoop</small></div>'
+          + qtyHtml
+        + '</div>'
+      + '</div>'
+    + '</div>';
+  }
+  document.getElementById("grid").innerHTML = html;
 }
 
 function addItem(id) {
   cart[id] = (cart[id] || 0) + 1;
+  var item = null;
+  for (var i = 0; i < ITEMS.length; i++) { if (ITEMS[i].id === id) { item = ITEMS[i]; break; } }
   renderGrid();
-  updateCartCount();
-  showToast("Added to cart 🍦");
+  updateCount();
+  showToast(item.emoji + " " + item.name + " added!");
 }
 
 function removeItem(id) {
@@ -559,85 +592,98 @@ function removeItem(id) {
   cart[id]--;
   if (cart[id] === 0) delete cart[id];
   renderGrid();
-  updateCartCount();
-  renderCartDrawer();
+  updateCount();
+  renderDrawer();
 }
 
-function updateCartCount() {
-  const total = Object.values(cart).reduce((a,b)=>a+b,0);
-  document.getElementById('cartCount').textContent = total;
+function updateCount() {
+  var total = 0;
+  var keys = Object.keys(cart);
+  for (var i = 0; i < keys.length; i++) total += cart[keys[i]];
+  document.getElementById("cartCount").textContent = total;
 }
 
-function renderCartDrawer() {
-  const body = document.getElementById('dbody');
-  const foot = document.getElementById('dfoot');
-  const ids = Object.keys(cart).map(Number);
-
-  if (!ids.length) {
-    body.innerHTML = "Your cart is empty 🍦";
-    foot.style.display = "none";
+function renderDrawer() {
+  var dbody = document.getElementById("dbody");
+  var dfoot = document.getElementById("dfoot");
+  var keys = Object.keys(cart).map(Number);
+  if (keys.length === 0) {
+    dbody.innerHTML = '<div class="empty"><span>🍦</span><p>Your cart is empty.<br>Add some scoops!</p></div>';
+    dfoot.style.display = "none";
     return;
   }
-
-  let total = 0;
-
-  body.innerHTML = ids.map(id=>{
-    const item = ITEMS.find(i=>i.id===id);
-    const qty = cart[id];
-    const sub = item.price * qty;
+  var total = 0;
+  var html = "";
+  for (var i = 0; i < keys.length; i++) {
+    var id = keys[i];
+    var item = null;
+    for (var j = 0; j < ITEMS.length; j++) { if (ITEMS[j].id === id) { item = ITEMS[j]; break; } }
+    var qty = cart[id];
+    var sub = item.price * qty;
     total += sub;
-
-    return `
-    <div class="ci">
-      <span class="ciemoji">${item.emoji}</span>
-      <div class="ciinfo">
-        <div>${item.name}</div>
-        <div>₹${sub}</div>
-      </div>
-    </div>`;
-  }).join('');
-
-  document.getElementById('tamt').textContent = "₹" + total;
-  document.getElementById('dnote').textContent =
-    total >= 500 ? "🎉 Free Delivery" : "Add more for free delivery";
-
-  foot.style.display = "block";
+    html += '<div class="ci">'
+      + '<span class="ciemoji">' + item.emoji + '</span>'
+      + '<div class="ciinfo">'
+        + '<div class="ciname">' + item.name + '</div>'
+        + '<div class="ciprice">&#8377;' + sub + ' (' + qty + ' &times; &#8377;' + item.price + ')</div>'
+      + '</div>'
+      + '<div class="ciqty">'
+        + '<button class="cqbtn" onclick="removeItem(' + id + ')">&#8722;</button>'
+        + '<span style="font-weight:800;min-width:18px;text-align:center">' + qty + '</span>'
+        + '<button class="cqbtn" onclick="addItem(' + id + ')">+</button>'
+      + '</div>'
+    + '</div>';
+  }
+  dbody.innerHTML = html;
+  document.getElementById("tamt").innerHTML = "&#8377;" + total;
+  document.getElementById("dnote").textContent = total >= 500
+    ? "🎉 Free delivery unlocked!"
+    : "Add ₹" + (500 - total) + " more for free delivery 🚚";
+  dfoot.style.display = "block";
 }
 
-function openCart(){
-  renderCartDrawer();
-  document.getElementById('overlay').classList.add('on');
-  document.getElementById('drawer').classList.add('on');
+function openCart() {
+  renderDrawer();
+  document.getElementById("overlay").classList.add("on");
+  document.getElementById("drawer").classList.add("on");
 }
 
-function closeCart(){
-  document.getElementById('overlay').classList.remove('on');
-  document.getElementById('drawer').classList.remove('on');
+function closeCart() {
+  document.getElementById("overlay").classList.remove("on");
+  document.getElementById("drawer").classList.remove("on");
 }
 
-function placeOrder(){
+function placeOrder() {
   closeCart();
-  document.getElementById('success').classList.add('on');
-}
-
-function goBack(){
-  document.getElementById('success').classList.remove('on');
-}
-
-function filter(el, cat){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  el.classList.add('active');
-  currentFilter = cat;
+  var oid = "RAJI" + String(Date.now()).slice(-6);
+  document.getElementById("oid").textContent = "Order ID: #" + oid;
+  document.getElementById("success").classList.add("on");
+  cart = {};
+  updateCount();
   renderGrid();
 }
 
-function showToast(msg){
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('on');
-  setTimeout(()=>t.classList.remove('on'),2000);
+function goBack() {
+  document.getElementById("success").classList.remove("on");
 }
 
+function filter(el, cat) {
+  var tabs = document.querySelectorAll(".tab");
+  for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove("active");
+  el.classList.add("active");
+  curFilter = cat;
+  renderGrid();
+}
+
+function showToast(msg) {
+  var t = document.getElementById("toast");
+  t.textContent = "🎉 " + msg;
+  t.classList.add("on");
+  if (toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ t.classList.remove("on"); }, 2400);
+}
+
+// INIT
 renderGrid();
 </script>
 </body>
